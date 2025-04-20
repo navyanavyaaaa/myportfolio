@@ -4,23 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const bgMusic = document.getElementById('bg-music');
     const greeting = document.getElementById('greeting');
     const hour = new Date().getHours();
-    greeting.textContent = hour >= 3 && hour < 12 ? "Good Morning ☀️" : 
-                          (hour >= 12 && hour < 18) ? "Good Afternoon 🌤️" : "Good Evening 🌙";
 
-    // Fix overflow for projects page
-    if (window.location.pathname.includes('projects.html')) {
-        document.body.classList.add('projects-page');
-    }
-
-    // Get background image if it exists on the page
-    const bgImage = document.querySelector('.main-image');
-    if (bgImage) {
-        if (hour >= 3 && hour < 12) {
-            bgImage.src = "images/bg4.jpeg";
-        } else {
-            bgImage.src = "images/bg3.jpeg";
-        }
-    }
+    // Set greeting based on the time of day
+    greeting.textContent = hour >= 3 && hour < 12 ? "Good Morning!" :
+                          (hour >= 12 && hour < 18) ? "Good Afternoon! " : "Good Evening! ";
 
     // Check localStorage for music state
     const musicPlaying = localStorage.getItem('musicPlaying') !== 'false'; // Default to true if not set
@@ -65,14 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 1000);
 
-    // Navigate to about.html when Explore button is clicked
-    const scrollButton = document.getElementById('scroll-button');
-    if (scrollButton) {
-        scrollButton.addEventListener('click', () => {
-            window.location.href = 'about.html';
-        });
-    }
-
     // Handle page unload - save the current state
     window.addEventListener('beforeunload', () => {
         localStorage.setItem('musicCurrentTime', bgMusic.currentTime);
@@ -83,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('projects.html')) {
         const navbar = document.querySelector('nav');
         let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             // Always show navbar when scrolling up
             if (scrollTop < lastScrollTop) {
                 navbar.style.top = '0';
@@ -96,8 +75,58 @@ document.addEventListener('DOMContentLoaded', function () {
                     navbar.style.top = '-100px';
                 }
             }
-            
+
             lastScrollTop = scrollTop;
         });
     }
+
+    // 🍂 Falling Leaves Animation
+    const leafContainer = document.querySelector('.falling-leaves');
+    if (leafContainer) {
+        const leafImages = ["images/leaf1.png", "images/leaf2.png"];
+
+        for (let i = 0; i < 25; i++) {
+            const leaf = document.createElement("img");
+            const isLeaf1 = Math.random() > 0.5;
+
+            leaf.src = isLeaf1 ? leafImages[0] : leafImages[1];
+            leaf.classList.add("leaf");
+
+            const size = isLeaf1 ? 40 : 60;
+            leaf.style.width = `${size}px`;
+            leaf.style.height = `${size}px`;
+
+            leaf.style.left = `${Math.random() * 100}vw`;
+            leaf.style.animationDuration = `${5 + Math.random() * 10}s`;
+            leaf.style.animationDelay = `${Math.random() * 5}s`;
+
+            leafContainer.appendChild(leaf);
+        }
+    }
+
+    // Message bubble functionality - ADD THIS CODE HERE
+    const messageBubble = document.querySelector('.message-bubble');
+    
+    if (messageBubble) {
+        messageBubble.addEventListener('click', function() {
+            this.classList.add('hidden');
+            localStorage.setItem('messageBubbleHidden', 'true');
+        });
+        
+        if (localStorage.getItem('messageBubbleHidden') === 'true') {
+            messageBubble.classList.add('hidden');
+        }
+    }
+});
+
+// Fetch respondent count
+window.addEventListener("DOMContentLoaded", () => {
+    fetch("https://script.google.com/macros/s/AKfycbyk4kR3GFILxMC9yRe6AytnUqgKJGG3jVRVYq4kSCJj5KH7Eo3z2VxeL4ejMZwDz7Plog/exec") // Replace with your actual URL
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("respondent-count").textContent = data.count;
+        })
+        .catch(error => {
+            console.error("Error fetching response count:", error);
+        });
 });

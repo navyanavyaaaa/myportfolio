@@ -4,7 +4,7 @@ body {
     font-family: 'Lora', serif;
     background-color: #fefae0;
     color: #8f5f3d;
-    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+    padding-top: 0; /* Remove padding to allow hero image to start at the top */
 }
 
 /* 🍃 Navbar */
@@ -14,20 +14,21 @@ nav {
     align-items: center;
     padding: 1rem 2rem;
     background-color: #d4d6ad;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
     border-bottom-left-radius: 35px;
     border-bottom-right-radius: 35px;
-    position: fixed; /* Use fixed position for consistency */
+    position: fixed; /* Keep navbar fixed */
     top: 0;
     left: 0; 
     right: 0;
     z-index: 1000;
-    transition: top 0.3s ease-in-out; /* Add smooth transition for showing/hiding */
 }
+
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    font-family: 'Caveat', cursive;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
 }
 
 .nav-links {
@@ -77,9 +78,11 @@ nav {
 .hero-image {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Full height of the viewport */
     z-index: -1;
+    transform: translateY(-30px); /* Ensure it is behind the navbar */
 }
+
 
 .main-image {
     width: 100%;
@@ -89,8 +92,9 @@ nav {
 
 .image-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 40%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
     width: 100%;
     height: 100%;
     display: flex;
@@ -116,11 +120,10 @@ nav {
     justify-content: center;
     align-items: center;
 }
-
 /* 🌠 Smoother, slower slide animations */
 @keyframes slideInLeft {
     0% {
-        transform: translateX(-150vw);
+        transform: translateX(-50vw); /* Increased from -150vw */
         opacity: 0;
     }
     100% {
@@ -131,7 +134,7 @@ nav {
 
 @keyframes slideInRight {
     0% {
-        transform: translateX(150vw);
+        transform: translateX(50vw); /* Increased from 150vw */
         opacity: 0;
     }
     100% {
@@ -139,6 +142,7 @@ nav {
         opacity: 1;
     }
 }
+
 
 @keyframes fadeIn {
     0% {
@@ -192,26 +196,6 @@ nav {
     z-index: 1000;
 }
 
-/* 🌼 Scroll Button */
-#scroll-button {
-    margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-family: 'Playfair Display', serif;
-    color: #3a3a3a;
-    background: linear-gradient(to right, #d6dbb2, #fefae0);
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#scroll-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
 
 /* ✨ Hero Section */
 .hero {
@@ -413,7 +397,10 @@ body.projects-page {
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    font-family: 'Caveat', cursive;
+    
+font-family: 'Playfair Display', serif;
+    
+      
 }
 
 .nav-links {
@@ -562,7 +549,7 @@ body.projects-page {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -603,8 +590,8 @@ body.projects-page {
 .reveal-button-container {
     grid-column: 1 / -1;
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 #reveal-btn {
@@ -650,4 +637,202 @@ body.projects-page {
         font-size: 2rem;
         padding-top: 20px;
     }
+}
+/* 🌼 Global font */
+body {
+    margin: 0;
+    font-family: 'Lora', serif;
+    background-color: #fefae0;
+    color: #8f5f3d;
+    padding-top: 80px; /* Adjust this value based on the height of your navbar */
+}
+
+/* 🍃 Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #d4d6ad;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap : 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #6b793e;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🌼 Testimonials Section */
+.testimonials {
+    padding: 50px 2rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    color: #8f5f3d;
+    margin-bottom: 2rem;
+}
+
+/* 🍃 Testimonial Boxes */
+.testimonial-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.testimonial-box {
+    background: linear-gradient(to right, #f8dcc3, #d4d6ad);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-box:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-box p {
+    font-size: 1rem;
+    color: #6b793e;
+    margin-bottom: 1rem;
+}
+
+.testimonial-box h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8f5f3d;
+}
+
+/* 🍃 Button */
+.cta-section {
+    margin-top: 3rem;
+}
+
+.cta-section button {
+    background-color: #6b793e;
+    color: #fefae0;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-section button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-section p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #8f5f3d;
+}
+
+/* 🌼 Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+/* 🍂 Falling Leaves */
+.falling-leaves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.leaf {
+    position: absolute;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.4;
+    }
+}
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Make sure vines appear as if they're coming from under the navbar */
+.left-vine, .right-vine {
+    top: 0;
+    height: 100%;
+    position: fixed;
+    z-index: -1; /* Ensure vines are behind content */
+}
+
+.left-vine {
+    left: 0;
+}
+
+.right-vine {
+    right: 0;
+}
+
+/* Ensure decorative elements don't interfere with clicking */
+.decorative-element {
+    pointer-events: none;
+}
+
+/* Add a mild animation to the decorative elements */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.little-flower, .little-tulip, .little-star, .little-heart {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger animations */
+#flower1, #star2, #heart3 { animation-delay: 0.5s; }
+#flower2, #star3, #heart1 { animation-delay: 1s; }
+#flower3, #star1, #heart2 { animation-delay: 1.5s; }
+#tulip1 { animation-delay: 0.3s; }
+#tulip2 { animation-delay: 1.3s; }
+
+/* Add a mild bounce animation to the bunny */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.bunny {
+    animation: bounce 4s ease-in-out infinite;
 }

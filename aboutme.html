@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navya Gupta | About Me</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito:wght@400;700&family=Poppins:wght@400;600&family=Old+Standard+TT:ital@1&family=Cabin:wght@400&display=swap" rel="stylesheet">
+<script defer src="assets/script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3fae0;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 20px;
+            position: relative;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            left: -50px;
+        }
+
+        .middle-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            right: -50px;
+        }
+
+        .box {
+    background: linear-gradient(135deg, #a9b279, #d4d6ad);
+    color: #8f5f3d; /* Changed from #6b793e to brown color */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #8f5f3d;
+    box-shadow: 0 4px 8px rgba(107, 121, 62, 0.2);
+}
+        .box-about {
+            height: 150px;
+        }
+
+        .box-technical {
+            height: 225px;
+        }
+
+        .box-programming {
+            height: 38px;
+        }
+
+        .box-education {
+            height: 380px;
+        }
+
+        .box-tools {
+            height: 100px;
+        }
+
+        .box-design {
+            height: 300px;
+        }
+
+        .box-interests {
+            height: 113px;
+        }
+
+        .box:hover {
+    background: linear-gradient(135deg, #f8dcc3, #f5e9db); /* More subtle gradient */
+    color: #8f5f3d; /* Keep text brown on hover */
+    transform: scale(1.05);
+    opacity: 0.95;
+    box-shadow: 0 8px 20px rgba(107, 121, 62, 0.6);
+}
+
+        .box-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .box-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+    background: rgba(248, 220, 195, 0.9);
+    color: #8f5f3d; /* Added to ensure text is brown */
+    border-radius: 13px;
+    line-height: 1.5;
+}
+        .box:hover .box-title {
+            opacity: 0;
+        }
+
+        .box:hover .box-description {
+            opacity: 1;
+        }
+
+        .design-courses {
+            text-align: right;
+            font-style: italic;
+        }
+        .decorative-element {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .right-vine {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            z-index: 5;
+        }
+        
+        .left-vine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            z-index: 5;
+        }
+
+        .bunny {
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            bottom: 10px;
+            right: 40px;
+            z-index: 10;
+        }
+        .message-bubble {
+    position: absolute;
+    bottom: 5px;
+    right: 130px;
+    background-color: #ffffff;
+    border: 2px solid #8f5f3d;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #8f5f3d;
+    max-width: 200px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    font-family: 'Caveat', cursive;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" id="greeting">Good Evening ✨</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+            <div class="icons">
+                <a href="mailto:navya23343@iiitd.ac.in">
+                    <img src="images/email.png" alt="Email" width="30" height="30">
+                </a>
+                <a href="https://www.instagram.com/some.thing0311/" target="_blank">
+                    <img src="images/insta.png" alt="Instagram" width="30" height="30">
+                </a>
+                <a href="tel:+919306020394">
+                    <img src="images/phone.png" alt="Phone" width="35" height="35">
+                </a>
+                <a href="https://github.com/navyanavyaaaa" target="_blank">
+                    <img src="images/github.png" alt="GitHub" width="30" height="30">
+                </a>
+                <button id="music-toggle">
+                    <img id="music-icon" src="images/music.png" alt="Music Toggle" width="24" height="24">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <img src="images/leftvine.png" alt="Left Vine" class="left-vine">
+    <img src="images/rightvine.png" alt="Right Vine" class="right-vine">
+    
+   
+    <img src="images/bunny.png" alt="Bunny" class="bunny">
+    
+<div class="message-bubble">Hover over these boxes to reveal info!</div>
+    <div class="container">
+        <div class="left-column">
+            <div class="box box-about">
+                <div class="box-title">ABOUT ME</div>
+                <div class="box-description">I'm Navya Gupta, a Computer Science and Design student who loves combining creativity with code.</div>
+            </div>
+            <div class="box box-technical">
+                <div class="box-title">TECHNICAL COURSES</div>
+                <div class="box-description">OOPs, DSA, ADA, DBMS, OS, Computer Organization, Linear Algebra, Multivariate Calculus, Probability & Statistics, Digital Circuits, Research Methodologies</div>
+            </div>
+            <div class="box box-programming">
+                <div class="box-title">programming languages</div>
+                <div class="box-description">Python, Java, C++</div>
+            </div>
+        </div>
+        
+        <div class="middle-column">
+            <div class="box box-education">
+                <div class="box-title">education</div>
+                <div class="box-description">
+                    <ul style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                        <li><strong>IIIT Delhi</strong>
+                            <ul style="list-style-type: circle; padding-left: 20px;">
+                                <li>B.Tech – Computer Science and Design (2023 – Present)</li>
+                            </ul>
+                        </li>
+                        <li><strong>The Vivekanand School, Narela</strong>
+                            <ul style="list-style-type: circle; padding-left: 20px;">
+                                <li>CBSE – PCM (Class 12, 2021 – 2023)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Wisdom World School, Kurukshetra</strong>
+                            <ul style="list-style-type: circle; padding-left: 20px;">
+                                <li>CBSE – (Class 10, 2011 – 2021)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box box-tools">
+                <div class="box-title">tools and technologies</div>
+                <div class="box-description">Figma, Adobe Photoshop, Illustrator, GitHub, VS Code, IntelliJ IDEA, Fusion 360, SolidWorks, Flask</div>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <div class="box box-design design-courses">
+                <div class="box-title">design courses i love</div>
+                <div class="box-description">
+                    Human Computer Interaction<br>
+                    Drawing, sketching<br>
+                    Photoshop, graphic design<br>
+                    RMSSD (how to conduct research)<br>
+                    Design Processes & Perspectives<br>
+                    Design Interactive Systems (apps, websites)<br>
+                    Prototyping (Arduino, sensors, 3D printing, CAD)
+                </div>
+            </div>
+            <div class="box box-interests">
+                <div class="box-title">INTERESTS / PASSIONS</div>
+                <div class="box-description">Graphic Design & Astronomy<br>Dramatics & Filmmaking<br>Public Speaking & Hosting</div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
